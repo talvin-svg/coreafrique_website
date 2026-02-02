@@ -1,9 +1,10 @@
+import { Footer } from "@/components/layout/Footer";
+import { Navbar } from "@/components/layout/Navbar";
+import { ScrollToTop } from "@/components/shared/ScrollToTop";
+import { SmoothScrollWrapper } from "@/components/shared/SmoothScrollWrapper";
+import { GlobalCanvasWrapper } from "@/components/three/GlobalCanvasWrapper";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
-import { ScrollToTop } from "@/components/shared/ScrollToTop";
-import { FloatingParticles } from "@/components/ui/FloatingParticles";
 import "./globals.css";
 
 const inter = Inter({
@@ -23,13 +24,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} font-sans antialiased bg-white text-neutral-900`}>
-        <FloatingParticles />
-        <Navbar />
-        <main className="min-h-screen relative z-10">{children}</main>
-        <Footer />
-        <ScrollToTop />
+    <html lang="en">
+      <body className={`${inter.variable} font-sans antialiased text-neutral-900`}>
+        <SmoothScrollWrapper>
+          <GlobalCanvasWrapper />
+          <Navbar />
+          <main className="min-h-screen relative">{children}</main>
+          <Footer />
+          <ScrollToTop />
+        </SmoothScrollWrapper>
       </body>
     </html>
   );

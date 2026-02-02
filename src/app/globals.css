@@ -29,9 +29,25 @@
   --color-neutral-950: #0A0A0A;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 body {
@@ -40,6 +56,15 @@ body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Semi-transparent section backgrounds for hero area */
+.bg-white\/80 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.bg-white\/70 {
+  background-color: rgba(255, 255, 255, 0.7) !important;
 }
 
 /* Selection colors */
