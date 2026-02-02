@@ -239,6 +239,14 @@
 - Added "Due Diligence & Risk Assessment" to Investment Advisory
 - Created separate differentiators arrays in company.ts
 
+**Contact Page Created** (`src/app/contact/page.tsx`):
+- Hero section matching site design
+- Contact form with name, email, company, subject dropdown, message
+- Form submission with success state
+- Contact information with icons (address, phone, email)
+- Social media links
+- Office hours section
+
 ---
 
 ### Session 2
