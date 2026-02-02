@@ -13,20 +13,24 @@ const config: Config = {
       },
       colors: {
         primary: {
-          DEFAULT: "#0F5132",
-          dark: "#0A3D26",
-          light: "#1A7A4A",
+          DEFAULT: "#16302B",
+          dark: "#03110D",
+          light: "#1E4A42",
         },
         secondary: {
-          DEFAULT: "#DAA520",
-          dark: "#B8860B",
-          light: "#E6C44A",
+          DEFAULT: "#A38560",
+          dark: "#8A7050",
+          light: "#C4A97D",
         },
-        background: "#F5F5F5",
+        accent: {
+          DEFAULT: "#390517",
+          light: "#5C1A2E",
+        },
+        background: "#E0E0E0",
         surface: "#FFFFFF",
         text: {
-          primary: "#1A1A1A",
-          secondary: "#6B7280",
+          primary: "#03110D",
+          secondary: "#5A5A5A",
         },
       },
       screens: {

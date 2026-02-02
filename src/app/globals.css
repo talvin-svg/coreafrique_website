@@ -1,36 +1,52 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0F5132;
-  --color-primary-dark: #0A3D26;
-  --color-primary-light: #1A7A4A;
-  --color-secondary: #0D9488;
-  --color-secondary-dark: #0F766E;
-  --color-secondary-light: #14B8A6;
-  --color-background: #F5F5F5;
+  /* Luxury palette inspired by Rolex/Porsche aesthetic */
+  --color-primary: #16302B;
+  --color-primary-dark: #03110D;
+  --color-primary-light: #1E4A42;
+  --color-secondary: #A38560;
+  --color-secondary-dark: #8A7050;
+  --color-secondary-light: #C4A97D;
+  --color-accent: #390517;
+  --color-accent-light: #5C1A2E;
+  --color-background: #E0E0E0;
   --color-surface: #FFFFFF;
-  --color-text-primary: #1A1A1A;
-  --color-text-secondary: #6B7280;
+  --color-text-primary: #03110D;
+  --color-text-secondary: #5A5A5A;
+  --color-emphasis: #F5C518;
+  --color-emphasis-light: #FDE68A;
 }
 
 body {
-  background-color: #F5F5F5;
-  color: #1A1A1A;
+  background-color: #E0E0E0;
+  color: #03110D;
 }
 
-/* Ensure text is always visible */
-h1, h2, h3, h4, h5, h6 {
-  color: #1A1A1A;
+/* Only apply dark text to elements NOT inside dark backgrounds */
+main h1, main h2, main h3, main h4, main h5, main h6 {
+  color: #03110D;
 }
 
-p {
-  color: #1A1A1A;
+main p {
+  color: #03110D;
+}
+
+/* Override for sections with dark/primary backgrounds */
+.bg-primary h1, .bg-primary h2, .bg-primary h3, .bg-primary h4, .bg-primary h5, .bg-primary h6,
+.bg-primary p, .bg-primary span, .bg-primary li, .bg-primary a {
+  color: inherit;
+}
+
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
+footer p, footer span, footer li {
+  color: inherit;
 }
 
 .text-text-primary {
-  color: #1A1A1A !important;
+  color: #03110D !important;
 }
 
 .text-text-secondary {
-  color: #6B7280 !important;
+  color: #5A5A5A !important;
 }

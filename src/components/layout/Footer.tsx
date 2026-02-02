@@ -1,10 +1,9 @@
-import Link from "next/link";
 import { companyInfo } from "@/lib/data/company";
+import Link from "next/link";
 
 const footerLinks = {
   company: [
     { href: "/about", label: "About Us" },
-    { href: "/services", label: "Services" },
     { href: "/contact", label: "Contact" },
   ],
   services: [
@@ -30,7 +29,7 @@ export function Footer() {
               </div>
               <span className="text-xl font-bold">CoreAfrique</span>
             </Link>
-            <p className="text-white/70 text-sm leading-relaxed mb-6">
+            <p className="text-white/80 text-sm leading-relaxed mb-6">
               {companyInfo.tagline}
             </p>
             <div className="flex gap-4">
@@ -39,7 +38,7 @@ export function Footer() {
                   href={companyInfo.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/70 hover:text-white transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                   aria-label="LinkedIn"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -52,7 +51,7 @@ export function Footer() {
                   href={companyInfo.socialLinks.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/70 hover:text-white transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                   aria-label="Twitter"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -65,7 +64,7 @@ export function Footer() {
                   href={companyInfo.socialLinks.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/70 hover:text-white transition-colors"
+                  className="text-white/80 hover:text-white transition-colors"
                   aria-label="Facebook"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -78,13 +77,13 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="font-semibold mb-4">Company</h3>
+            <h3 className="font-semibold text-white mb-4">Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/70 hover:text-white transition-colors text-sm"
+                    className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -95,13 +94,13 @@ export function Footer() {
 
           {/* Services Links */}
           <div>
-            <h3 className="font-semibold mb-4">Services</h3>
+            <h3 className="font-semibold text-white mb-4">Services</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/70 hover:text-white transition-colors text-sm"
+                    className="text-white/80 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -112,8 +111,8 @@ export function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3 text-sm text-white/70">
+            <h3 className="font-semibold text-white mb-4">Contact</h3>
+            <ul className="space-y-3 text-sm text-white/80">
               <li className="flex items-start gap-2">
                 <svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -138,8 +137,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/50 text-sm">
+        <div className="mt-12 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/70 text-sm">
             &copy; {new Date().getFullYear()} CoreAfrique. All rights reserved.
           </p>
           <div className="flex gap-6">
@@ -147,7 +146,7 @@ export function Footer() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-white/50 hover:text-white transition-colors text-sm"
+                className="text-white/70 hover:text-white transition-colors text-sm"
               >
                 {link.label}
               </Link>

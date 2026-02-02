@@ -7,4 +7,6 @@ export interface TeamMember {
   linkedinUrl?: string;
   email?: string;
   image?: string;
+  professionalHighlights?: string[];
+  engagements?: string[];
 }

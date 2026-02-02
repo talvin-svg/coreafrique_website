@@ -21,8 +21,8 @@ export function ParticleField({
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
 
-    const primaryColor = new THREE.Color("#0F5132");
-    const secondaryColor = new THREE.Color("#0D9488");
+    const primaryColor = new THREE.Color("#16302B");
+    const secondaryColor = new THREE.Color("#A38560");
 
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;

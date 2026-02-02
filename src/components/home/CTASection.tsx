@@ -5,15 +5,15 @@ import Link from "next/link";
 
 export function CTASection() {
   return (
-    <section className="bg-gradient-to-br from-primary to-primary-dark py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="py-24">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-white mb-6"
+          className="text-3xl md:text-5xl font-bold text-text-primary mb-6"
         >
-          Ready to Transform Your Financial Future?
+          Ready to transform your financial future?
         </motion.h2>
 
         <motion.p
@@ -21,7 +21,7 @@ export function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-lg text-white/80 mb-10 max-w-2xl mx-auto"
+          className="text-text-secondary text-lg mb-10 max-w-lg mx-auto"
         >
           Schedule a consultation with our experts and discover how we can help
           you achieve your investment goals.
@@ -36,15 +36,15 @@ export function CTASection() {
         >
           <Link
             href="/contact"
-            className="px-8 py-4 bg-white text-primary rounded-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+            className="px-8 py-4 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors"
           >
-            Schedule Consultation
+            Schedule consultation
           </Link>
           <Link
-            href="/services"
-            className="px-8 py-4 bg-transparent text-white border-2 border-white rounded-lg font-semibold hover:bg-white/10 transition-colors"
+            href="/services/investment-advisory"
+            className="px-8 py-4 text-text-primary border border-gray-300 rounded-lg font-medium hover:border-primary hover:text-primary transition-colors"
           >
-            Explore Services
+            Explore services
           </Link>
         </motion.div>
       </div>

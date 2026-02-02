@@ -1,170 +1,239 @@
-import { Metadata } from "next";
-import Link from "next/link";
-import { SectionContainer } from "@/components/shared/SectionContainer";
-import { SectionTitle } from "@/components/shared/SectionTitle";
-import { ServiceCard } from "@/components/shared/ServiceCard";
-import { blockchainEducationServices } from "@/lib/data/services";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Blockchain Education & VASP Compliance - CoreAfrique",
-  description:
-    "Comprehensive blockchain education and VASP compliance services for individuals and organizations.",
-};
+import { blockchainEducationServices, serviceCategories } from "@/lib/data/services";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function BlockchainEducationPage() {
   return (
-    <>
+    <main className="bg-background">
       {/* Hero */}
-      <section className="bg-gradient-to-br from-secondary to-secondary-dark py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Blockchain Education
-          </h1>
-          <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Navigate the digital asset landscape with confidence. From
-            fundamentals to VASP compliance, we provide the knowledge you need
-            to succeed.
-          </p>
+      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-secondary font-medium mb-4"
+          >
+            Blockchain Education & Advocacy
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-5xl md:text-7xl font-bold text-text-primary tracking-tight mb-6"
+          >
+            Building Africa&apos;s
+            <br />
+            <span className="text-primary">digital asset future.</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-xl text-text-secondary max-w-2xl mb-10"
+          >
+            {serviceCategories.blockchainEducation.overview}
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex flex-wrap gap-4"
+          >
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors"
+            >
+              Request training
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <Link
+              href="#programs"
+              className="px-6 py-3 text-text-primary border border-gray-300 rounded-lg font-medium hover:border-primary hover:text-primary transition-colors"
+            >
+              View programs
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      {/* Services */}
-      <SectionContainer>
-        <SectionTitle
-          title="Education & Compliance Services"
-          subtitle="Building blockchain knowledge and regulatory readiness"
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blockchainEducationServices.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
+      {/* Regulatory Credentials */}
+      <section className="py-12 border-y border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap justify-center md:justify-between items-center gap-8 md:gap-4 text-center md:text-left">
+            <div className="px-4 py-2 bg-yellow-100 border border-yellow-400 rounded-lg">
+              <div className="text-2xl font-bold text-yellow-700">NaVALI</div>
+              <div className="text-yellow-800 mt-1 text-sm font-medium">Knowledge Partner of Bank of Ghana (BoG) and SEC</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-primary">8+ Years</div>
+              <div className="text-text-secondary mt-1">Blockchain Experience</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-primary">CFA</div>
+              <div className="text-text-secondary mt-1">Chartered Credentials</div>
+            </div>
+          </div>
         </div>
-      </SectionContainer>
+      </section>
 
-      {/* Features */}
-      <SectionContainer className="bg-surface">
-        <SectionTitle
-          title="Why Learn With Us?"
-          subtitle="What makes our blockchain education unique"
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-xl p-8 shadow-md">
-            <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                className="w-6 h-6 text-secondary"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+      {/* What we teach */}
+      <section id="programs" className="py-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold text-text-primary mb-4"
+          >
+            Our programs
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-text-secondary text-lg mb-16 max-w-xl"
+          >
+            Promoting informed, responsible, and compliant adoption of Blockchain technology.
+          </motion.p>
+
+          <div className="space-y-0">
+            {blockchainEducationServices.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="group py-8 border-b border-gray-200 first:border-t"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Practical Curriculum
-            </h3>
-            <p className="text-gray-600">
-              Our courses combine theoretical knowledge with real-world
-              applications, ensuring you can apply what you learn immediately.
-            </p>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="flex items-center gap-6">
+                    <span className="text-sm text-text-secondary font-mono">
+                      0{index + 1}
+                    </span>
+                    <h3 className="text-2xl font-semibold text-text-primary group-hover:text-primary transition-colors">
+                      {service.name}
+                    </h3>
+                  </div>
+                  <p className="text-text-secondary md:max-w-md md:text-right">
+                    {service.shortDescription}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
-          <div className="bg-white rounded-xl p-8 shadow-md">
-            <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                className="w-6 h-6 text-secondary"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+        </div>
+      </section>
+
+      {/* Who we serve */}
+      <section className="py-24 bg-surface">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-16">
+            <div>
+              <motion.h2
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-3xl md:text-4xl font-bold text-text-primary mb-6"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
+                Who we serve
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-text-secondary text-lg leading-relaxed"
+              >
+                Our programs are tailored for different audiences, from beginners
+                to institutional stakeholders, all aligned with Ghana&apos;s
+                regulatory framework.
+              </motion.p>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Regulatory Expertise
-            </h3>
-            <p className="text-gray-600">
-              Stay ahead of compliance requirements with guidance from experts
-              who understand African regulatory frameworks.
-            </p>
+            <div className="space-y-8">
+              {[
+                { title: "Beginners & General Public", desc: "Foundational blockchain knowledge" },
+                { title: "Professionals & Executives", desc: "Strategic digital asset awareness" },
+                { title: "Financial Institutions", desc: "Blockchain for business applications" },
+                { title: "Government Agencies", desc: "Policy and regulatory alignment" },
+                { title: "VASP License Holders", desc: "Compliance-focused education" },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <h3 className="font-semibold text-text-primary mb-1 flex items-center gap-3">
+                    <span className="w-2 h-2 bg-secondary rounded-full" />
+                    {item.title}
+                  </h3>
+                  <p className="text-text-secondary pl-5">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
-          <div className="bg-white rounded-xl p-8 shadow-md">
-            <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                className="w-6 h-6 text-secondary"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Expert Instructors
-            </h3>
-            <p className="text-gray-600">
-              Learn from certified blockchain professionals with hands-on
-              experience in the industry.
-            </p>
-          </div>
-          <div className="bg-white rounded-xl p-8 shadow-md">
-            <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-              <svg
-                className="w-6 h-6 text-secondary"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                />
-              </svg>
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Corporate Training
-            </h3>
-            <p className="text-gray-600">
-              Custom training programs for organizations looking to upskill
-              their teams in blockchain technology.
+        </div>
+      </section>
+
+      {/* Disclaimer */}
+      <section className="py-12 bg-background">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-6 bg-yellow-50 border border-yellow-400 rounded-lg">
+            <p className="text-sm text-yellow-800">
+              <strong className="text-yellow-700">Regulatory Disclosure:</strong> {serviceCategories.blockchainEducation.disclaimer}
             </p>
           </div>
         </div>
-      </SectionContainer>
+      </section>
 
       {/* CTA */}
-      <section className="bg-secondary py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Master Blockchain?
-          </h2>
-          <p className="text-white/80 mb-8">
-            Join our upcoming training programs or schedule a corporate
-            consultation
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 bg-white text-secondary rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+      <section className="py-24">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold text-text-primary mb-6"
           >
-            Get Started
-          </Link>
+            Ready to upskill your team?
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-text-secondary text-lg mb-10 max-w-lg mx-auto"
+          >
+            Get in touch to discuss a training program tailored to your
+            organization&apos;s needs.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <Link
+              href="/contact"
+              className="px-8 py-4 bg-primary text-white rounded-lg font-medium hover:bg-primary-dark transition-colors"
+            >
+              Request a consultation
+            </Link>
+            <Link
+              href="/services/investment-advisory"
+              className="px-8 py-4 text-text-primary border border-gray-300 rounded-lg font-medium hover:border-primary hover:text-primary transition-colors"
+            >
+              View advisory services
+            </Link>
+          </motion.div>
         </div>
       </section>
-    </>
+    </main>
   );
 }
