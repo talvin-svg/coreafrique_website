@@ -36,7 +36,7 @@ export const teamData: TeamMember[] = [
   {
     id: "team-2",
     name: "Perissa Frempong",
-    role: "Crew Productivity Manager, Air Canada",
+    role: "Data Analyst",
     image: "/images/team/perissa-pfp.jpeg",
     bio: "Data analytics specialist with expertise in Python and large-scale data analysis. Ivey MMA graduate focused on business insights and operational efficiency.",
     qualifications: [
@@ -49,7 +49,7 @@ export const teamData: TeamMember[] = [
   {
     id: "team-3",
     name: "Talvin Tawiah",
-    role: "Software Developer | CMIC",
+    role: "Tech Consultant | Software Developer",
     image: "/images/team/talvin-pfp.jpeg",
     bio: "Software developer at CMIC specializing in Flutter mobile applications. Self-taught programmer with growing expertise in AI and machine learning.",
     qualifications: [

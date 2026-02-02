@@ -3,8 +3,8 @@
 import { teamData } from "@/lib/data/team";
 import { timelineData } from "@/lib/data/timeline";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 
 const founder = teamData.find((member) => member.id === "team-1");
 const otherTeamMembers = teamData.filter((member) => member.id !== "team-1");
@@ -81,7 +81,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Timeline with dots and line */}
       <section className="relative py-24">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
@@ -96,27 +96,80 @@ export default function AboutPage() {
             </h2>
           </motion.div>
 
-          <div className="space-y-8">
-            {timelineData.map((event, index) => (
-              <motion.div
-                key={event.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex gap-6 items-start"
-              >
-                <div className="flex-shrink-0 w-20">
-                  <span className="text-2xl font-bold text-secondary">{event.year}</span>
-                </div>
-                <div className="flex-1 pb-8 border-b border-neutral-200">
-                  <h3 className="text-lg font-semibold text-primary mb-2">
-                    {event.title}
-                  </h3>
-                  <p className="text-text-secondary">{event.description}</p>
-                </div>
-              </motion.div>
-            ))}
+          {/* Timeline container */}
+          <div className="relative">
+            {/* Vertical line */}
+            <motion.div
+              initial={{ scaleY: 0 }}
+              whileInView={{ scaleY: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="absolute left-[7px] md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-secondary via-primary to-primary/30 origin-top md:-translate-x-1/2"
+            />
+
+            <div className="space-y-12 md:space-y-16">
+              {timelineData.map((event, index) => (
+                <motion.div
+                  key={event.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  className={`relative flex items-start gap-8 ${
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
+                >
+                  {/* Timeline dot */}
+                  <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10 flex items-center justify-center">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.15 + 0.2 }}
+                      className="relative"
+                    >
+                      {/* Outer ring */}
+                      <div className="w-5 h-5 rounded-full bg-secondary/20 absolute -inset-1" />
+                      {/* Main dot */}
+                      <div className="w-3.5 h-3.5 rounded-full bg-secondary border-2 border-white shadow-md relative" />
+                    </motion.div>
+                  </div>
+
+                  {/* Content card */}
+                  <div
+                    className={`ml-10 md:ml-0 md:w-[calc(50%-2rem)] ${
+                      index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8"
+                    }`}
+                  >
+                    <motion.div
+                      whileHover={{ y: -4 }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-surface rounded-xl shadow-sm p-6 border border-neutral-100 hover:shadow-md transition-shadow"
+                    >
+                      {/* Year badge */}
+                      <span className="inline-block px-4 py-1.5 bg-gradient-to-r from-secondary to-secondary/80 text-white rounded-full text-sm font-bold mb-4">
+                        {event.year}
+                      </span>
+                      <h3 className="text-lg font-semibold text-primary mb-2">
+                        {event.title}
+                      </h3>
+                      <p className="text-text-secondary leading-relaxed">
+                        {event.description}
+                      </p>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* End dot */}
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.5 }}
+              className="absolute left-[7px] md:left-1/2 -bottom-2 md:-translate-x-1/2 w-3 h-3 rounded-full bg-primary/30 border-2 border-primary"
+            />
           </div>
         </div>
       </section>
