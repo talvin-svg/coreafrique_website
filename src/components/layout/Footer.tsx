@@ -1,4 +1,4 @@
-import { companyInfo } from "@/lib/data/company";
+import { companyInfo, sisterCompany } from "@/lib/data/company";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -50,12 +50,13 @@ export function Footer() {
               ))}
               <li>
                 <a
-                  href="https://afriqueadvisors.ca"
+                  href={sisterCompany.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-secondary transition-colors text-sm"
                 >
-                  Afrique Advisors (Canada) ↗
+                  {sisterCompany.name} <span aria-hidden="true">↗</span>
+                  <span className="sr-only">(opens in new tab)</span>
                 </a>
               </li>
             </ul>
@@ -123,20 +124,21 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-primary-light/30 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-white/50 text-sm">
-            &copy; {new Date().getFullYear()} CoreAfrique. All rights reserved.
-          </p>
-          <p className="text-white/50 text-sm">
-            Sister company:{" "}
-            <a
-              href="https://afriqueadvisors.ca"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-secondary hover:text-secondary-light transition-colors"
-            >
-              Afrique Advisors Canada Inc.
-            </a>
-          </p>
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-4 text-white/50 text-sm">
+            <p>&copy; {new Date().getFullYear()} CoreAfrique. All rights reserved.</p>
+            <p>
+              Sister company:{" "}
+              <a
+                href={sisterCompany.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-secondary transition-colors"
+              >
+                {sisterCompany.name}
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </p>
+          </div>
           <div className="flex gap-6 text-sm">
             <Link href="/privacy" className="text-white/50 hover:text-secondary transition-colors">
               Privacy
