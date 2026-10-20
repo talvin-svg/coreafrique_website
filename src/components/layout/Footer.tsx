@@ -48,6 +48,16 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://afriqueadvisors.ca"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-secondary transition-colors text-sm"
+                >
+                  Afrique Advisors (Canada) ↗
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -115,6 +125,17 @@ export function Footer() {
         <div className="pt-8 border-t border-primary-light/30 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-white/50 text-sm">
             &copy; {new Date().getFullYear()} CoreAfrique. All rights reserved.
+          </p>
+          <p className="text-white/50 text-sm">
+            Sister company:{" "}
+            <a
+              href="https://afriqueadvisors.ca"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary hover:text-secondary-light transition-colors"
+            >
+              Afrique Advisors Canada Inc.
+            </a>
           </p>
           <div className="flex gap-6 text-sm">
             <Link href="/privacy" className="text-white/50 hover:text-secondary transition-colors">
