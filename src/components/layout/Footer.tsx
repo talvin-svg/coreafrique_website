@@ -55,7 +55,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-secondary transition-colors text-sm"
                 >
-                  {sisterCompany.name} <span aria-hidden="true">↗</span>
+                  {sisterCompany.shortName} <span aria-hidden="true">↗</span>
                   <span className="sr-only">(opens in new tab)</span>
                 </a>
               </li>
@@ -124,7 +124,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-primary-light/30 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-4 text-white/50 text-sm">
+          <div className="flex flex-col lg:flex-row items-center sm:items-start lg:items-center gap-1 lg:gap-4 text-center sm:text-left text-white/50 text-sm">
             <p>&copy; {new Date().getFullYear()} CoreAfrique. All rights reserved.</p>
             <p>
               Sister company:{" "}
