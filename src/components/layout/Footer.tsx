@@ -1,4 +1,4 @@
-import { companyInfo } from "@/lib/data/company";
+import { companyInfo, sisterCompany } from "@/lib/data/company";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -48,6 +48,17 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href={sisterCompany.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/70 hover:text-secondary transition-colors text-sm"
+                >
+                  {sisterCompany.shortName} <span aria-hidden="true">↗</span>
+                  <span className="sr-only">(opens in new tab)</span>
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -113,9 +124,21 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-primary-light/30 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-white/50 text-sm">
-            &copy; {new Date().getFullYear()} CoreAfrique. All rights reserved.
-          </p>
+          <div className="flex flex-col lg:flex-row items-center sm:items-start lg:items-center gap-1 lg:gap-4 text-center sm:text-left text-white/50 text-sm">
+            <p>&copy; {new Date().getFullYear()} CoreAfrique. All rights reserved.</p>
+            <p>
+              Sister company:{" "}
+              <a
+                href={sisterCompany.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/70 hover:text-secondary transition-colors"
+              >
+                {sisterCompany.name}
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </p>
+          </div>
           <div className="flex gap-6 text-sm">
             <Link href="/privacy" className="text-white/50 hover:text-secondary transition-colors">
               Privacy

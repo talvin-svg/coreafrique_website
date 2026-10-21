@@ -17,6 +17,13 @@ export const companyInfo: CompanyInfo = {
   },
 };
 
+// Sister company in North America
+export const sisterCompany = {
+  name: "Afrique Advisors Canada Inc.",
+  shortName: "Afrique Advisors",
+  url: "https://afriqueadvisors.ca",
+};
+
 export const statistics: Statistic[] = [
   {
     id: "stat-1",
